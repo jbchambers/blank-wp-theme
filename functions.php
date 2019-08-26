@@ -144,14 +144,3 @@ function cc_mime_types($mimes)
 }
 
 add_filter('upload_mimes', 'cc_mime_types');
-
-/* WP CUSTOMER REVIEWS
--------------------------------------------------------------- */
-function fix_reviews_plugin()
-{
-  wp_deregister_script('wp-customer-reviews-3-frontend');
-  wp_enqueue_script('slick-carousel.js', get_home_url() . 'plugins/wp-customer-reviews/js/wp-customer-reviews.js', array('jquery'), '', true);
-
-}
-
-add_action('wp_enqueue_scripts', 'fix_reviews_plugin');
