@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
   position: relative;
   font-weight: normal;
-  color: $black;
+  color: #000;
 }
 
 section {
@@ -58,15 +58,16 @@ section {
 }
 
 .container {
-  width: 1170px;
+  width: calc(100% - 60px);
+  max-width: 1170px;
   margin: auto;
   float: none;
   display: block;
   @media (max-width: 1199px) {
-    width: 970px;
+    max-width: 970px;
   }
   @media (max-width: 991px) {
-    width: 710px;
+    max-width: 710px;
   }
   @media (max-width: 767px) {
     width: calc(100% - 60px);
@@ -77,18 +78,11 @@ section {
 .page-content {
   width: 100%;
   float: left;
-  padding-top: 175px;
-  padding-left: 125px;
-  padding-right: 125px;
-  padding-bottom: 225px;
-  .column {
-    float: left;
-  }
-  .main-content {
-    width: 60%;
-    margin-right: 8%;
-  }
-  .sidebar {
-    width: 32%;
-  }
+}
+.main-content {
+  width: 60%;
+  margin-right: 8%;
+}
+.sidebar {
+  width: 32%;
 }
