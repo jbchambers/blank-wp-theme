@@ -15,11 +15,10 @@ jQuery(document).ready(function () {
     });
 
     // MATCH HEIGHT
-    jQuery('.column').matchHeight();
-    jQuery('.item').matchHeight();
+    jQuery('.slick-carousel .slick-slide').matchHeight();
 
     // SLICK CAROUSELS
-    jQuery('.caousel').slick({
+    jQuery('.carousel').slick({
         dots: true,
         infinite: false,
         speed: 300,
