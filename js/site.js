@@ -20,18 +20,17 @@ jQuery(document).ready(function () {
     // SLICK CAROUSELS
     jQuery('.carousel').slick({
         dots: true,
-        infinite: false,
-        speed: 300,
+        arrows: true,
+        infinite: true,
+        speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
         responsive: [
             {
                 breakpoint: 767,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
             }
         ]
