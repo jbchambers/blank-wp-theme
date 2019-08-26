@@ -88,10 +88,11 @@ if (function_exists('register_sidebars')) {
   ));
 }
 
-/* Add Theme Support Page Thumbnails
+/* Add Theme Support Page Thumbnails & Title Tag
 -------------------------------------------------------------- */
 
 add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
 
 /* Modify the_excerpt() " read more "
 -------------------------------------------------------------- */
