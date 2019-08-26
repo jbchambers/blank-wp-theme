@@ -63,4 +63,66 @@ jQuery(document).ready(function () {
             }
         });
     });
+
+    // Hide Header on on scroll down
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = jQuery('header').outerHeight();
+
+    jQuery(window).scroll(function(event){
+        didScroll = true;
+    });
+
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        var st = jQuery(this).scrollTop();
+
+        // Make sure they scroll more than delta
+        if(Math.abs(lastScrollTop - st) <= delta)
+            return;
+
+        // If they scrolled down and are past the navbar, add class .hideNav.
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight){
+            // Scroll Down
+            jQuery('header').removeClass('showNav').addClass('hideNav');
+        } else {
+            // Scroll Up
+            if(st + jQuery(window).height() < jQuery(document).height()) {
+                jQuery('header').removeClass('hideNav').addClass('showNav');
+            }
+        }
+
+        lastScrollTop = st;
+    }
+
+
+    // DECLARE EACH RESPONSIVE BREAKPOINT
+    function checkWidthTablet() {
+        // DESKTOP SCREEN SIZES
+        if (jQuery(window).width() > 1199) {
+            jQuery( "nav .menu-item-has-children" ).hover(
+                function() {
+                    jQuery( this ).children('.sub-menu').slideDown(500);
+                }, function() {
+                    jQuery( this ).children('.sub-menu').slideUp(500);
+                }
+            );
+        }
+        else {
+            jQuery("nav .menu-item-has-children").click(function ($) {
+                jQuery(this).children('.sub-menu').slideDown('slow');
+                jQuery(this).siblings('.menu-item-has-children').children('.sub-menu').slideUp('slow');
+            });
+        }
+    }
+
+    checkWidthTablet();
 });
